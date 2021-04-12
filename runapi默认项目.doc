@@ -1,0 +1,251 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:o="urn:schemas-microsoft-com:office:office"
+    xmlns:w="urn:schemas-microsoft-com:office:word"
+    xmlns="http://www.w3.org/TR/REC-html40">
+    <head><meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <style type="text/css">
+        table  
+        {  
+            border-collapse: collapse;
+            border: none;  
+            width: 100%;  
+        }  
+        td,tr  
+        {  
+            border: solid #CCC 1px;
+            padding:3px;
+            font-size:9pt;
+        } 
+        .codestyle{
+            word-break: break-all;
+            mso-highlight:rgb(252, 252, 252);
+            padding-left: 5px; background-color: rgb(252, 252, 252); border: 1px solid rgb(225, 225, 232);
+        }
+        img {
+            width:100;
+        }
+    </style>
+    <meta name=ProgId content=Word.Document>
+    <meta name=Generator content="Microsoft Word 11">
+    <meta name=Originator content="Microsoft Word 11">
+    <xml><w:WordDocument><w:View>Print</w:View></xml></head>
+    <body><h1>1、查看所有</h1><div style="margin-left:20px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:5000/dolist/api/v1/todos</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+  "todos": [
+    {
+      "add_time": "0410",
+      "end_time": "0411",
+      "id": 0,
+      "message": "ab",
+      "status": false,
+      "title": "吃饭"
+    },
+    {
+      "add_time": 1618190248.535996,
+      "end_time": null,
+      "id": 1,
+      "message": "sleep",
+      "status": false,
+      "title": "睡觉"
+    }
+  ]
+}
+</code></pre></table>
+<h5>备注</h5></div><h1>2、查看一条待办事项</h1><div style="margin-left:20px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:5000/dolist/api/v1/todos/1</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>get</li>
+</ul>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+  "todo": {
+    "add_time": 1618190248.535996,
+    "end_time": null,
+    "id": 1,
+    "message": "sleep",
+    "status": false,
+    "title": "睡觉"
+  }
+}
+</code></pre></table>
+<h5>备注</h5></div><h1>3、添加一条待办事项</h1><div style="margin-left:20px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:5000/dolist/api/v1/todos/</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>post</li>
+</ul>
+<h5>请求参数</h5>
+<table>
+<thead><tr style='background-color: rgb(0, 136, 204); color: rgb(255, 255, 255);'>
+<th style="text-align: left;">参数名</th>
+<th style="text-align: left;">必选</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">title</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">message</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">add_time</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align: left;">end_time</td>
+<td style="text-align: left;">是</td>
+<td>string</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+  "todo": {
+    "add_time": "0410",
+    "end_time": "0411",
+    "id": 2,
+    "message": "bbb",
+    "status": false,
+    "title": "学习"
+  }
+}
+</code></pre></table>
+<h5>备注</h5></div><h1>4、更改一条状态</h1><div style="margin-left:20px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:5000/dolist/api/v1/todos/status/1</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>put</li>
+</ul>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+  "todos": [
+    {
+      "add_time": "0410",
+      "end_time": "0411",
+      "id": 0,
+      "message": "ab",
+      "status": false,
+      "title": "吃饭"
+    },
+    {
+      "add_time": 1618192148.8096776,
+      "end_time": null,
+      "id": 1,
+      "message": "sleep",
+      "status": true,
+      "title": "睡觉"
+    },
+    {
+      "add_time": "0410",
+      "end_time": "0411",
+      "id": 2,
+      "message": "bbb",
+      "status": false,
+      "title": "学习"
+    }
+  ]
+}
+</code></pre></table>
+<h5>备注</h5></div><h1>5、更改多条状态</h1><div style="margin-left:20px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:5000/dolist/api/v1/todos/status/</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>put</li>
+</ul>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+  "todos": [
+    {
+      "add_time": "0410",
+      "end_time": "0411",
+      "id": 0,
+      "message": "ab",
+      "status": true,
+      "title": "吃饭"
+    },
+    {
+      "add_time": 1618192148.8096776,
+      "end_time": null,
+      "id": 1,
+      "message": "sleep",
+      "status": false,
+      "title": "睡觉"
+    },
+    {
+      "add_time": "0410",
+      "end_time": "0411",
+      "id": 2,
+      "message": "bbb",
+      "status": false,
+      "title": "学习"
+    }
+  ]
+}
+</code></pre></table>
+<h5>备注</h5></div><h1>6、删除</h1><div style="margin-left:20px;"><h5>简要描述</h5>
+<ul>
+<li>无</li>
+</ul>
+<h5>请求URL</h5>
+<ul>
+<li><code>http://127.0.0.1:5000/dolist/api/v1/todos/2</code></li>
+</ul>
+<h5>请求方式</h5>
+<ul>
+<li>delete</li>
+</ul>
+<h5>返回示例</h5>
+<table width='100%' class='codestyle'><pre><code>{
+  "result": true
+}
+</code></pre></table>
+<h5>备注</h5></div></body></html>

@@ -295,13 +295,11 @@ def error(e):
 
 
 @app.route('/dolist/api/v1/todos', methods=['GET'])  # 查看所有
-@auth.login_required
 def get_tasks():
     return jsonify({'todos': todos})
 
 
 @app.route('/dolist/api/v1/todos/<int:id>', methods=['GET'])  # 查看一条待办事项
-@auth.login_required
 def get_task(id):
     for todo in todos:
         if todo['id'] == id:
@@ -310,7 +308,6 @@ def get_task(id):
 
 
 @app.route('/dolist/api/v1/todos/', methods=['POST'])  # 添加一条待办事项
-@auth.login_required
 def create_task():
     if not request.form or not 'title' in request.form:
         abort(400)
@@ -318,7 +315,7 @@ def create_task():
         "id": todos[-1]['id'] + 1,
         "title": request.form['title'],
         "message": request.form['message'],
-        "status": 0,
+        "status": False,
         "add_time": request.form['add_time'],
         "end_time": request.form['end_time'],
     }
@@ -327,7 +324,6 @@ def create_task():
 
 
 @app.route('/dolist/api/v1/todos/<int:id>', methods=['PUT'])
-@auth.login_required
 def updata_task(id):
     for todo in todos:
         if todo['id'] == id:
@@ -340,14 +336,12 @@ def updata_task(id):
 
 
 @app.route('/dolist/api/v1/todos/status/<int:id>', methods=['PUT'])  # 修改一条状态
-@auth.login_required
 def updata_status(id):
     todos[id]['status'] = not todos[id]['status']
     return jsonify({'todos': todos})
 
 
 @app.route('/dolist/api/v1/todos/status/', methods=['PUT'])  # 修改多条状态
-@auth.login_required
 def updatas_status():
     for id in range(0, 2):
         todos[id]['status'] = not todos[id]['status']
@@ -355,7 +349,6 @@ def updatas_status():
 
 
 @app.route('/dolist/api/v1/todos/<int:id>', methods=['DELETE'])  # 删除
-@auth.login_required
 def delete_task(id):
     for todo in todos:
         if todo['id'] == id:
@@ -364,19 +357,6 @@ def delete_task(id):
     abort(404)
 
     return jsonify({'result': True})
-
-
-# @app.route('/login', methods=['POST'])
-# def login():
-#     username = request.values.get('name')
-#     pwd = request.values.get('pwd')
-#     if username and pwd:
-#         if username == 'xiaoming' and pwd == '123':
-#             return jsonify({'result': '登录成功'})
-#         else:
-#             return jsonify({'result': '密码错误'})
-#     else:
-#         return jsonify({'result': '参数为空'})
 
 
 if __name__ == '__main__':
